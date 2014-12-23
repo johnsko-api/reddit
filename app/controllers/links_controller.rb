@@ -11,6 +11,7 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    @links = Link.all
   end
 
   # GET /links/new
@@ -25,7 +26,7 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = current_user.build(link_params)
+    @link = current_user.links.build(link_params)
 
     respond_to do |format|
       if @link.save
@@ -61,7 +62,7 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def authorized_user
     @link = current_user.links.find_by(id: params[:id])
     redirect_to links_path, notice: "Not authorized to edit this link" if @link.nil?
