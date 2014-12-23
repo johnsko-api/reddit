@@ -31,7 +31,7 @@ gem 'spring',        group: :development
 gem 'devise', '~> 3.3.0'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'acts_as_votable'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
